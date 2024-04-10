@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "com.example.numbers";
+option java_outer_classname = "NumbersProto";
+
+package numbers;
+
+service NumbersGenerator {
+  rpc GenerateNumbers(NumbersRequest) returns (stream NumbersResponse);
+}
+
+message NumbersRequest {
+  int32 firstValue = 1;
+  int32 lastValue = 2;
+}
+
+message NumbersResponse {
+  int32 value = 1;
+}
